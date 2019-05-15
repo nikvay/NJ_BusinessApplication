@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/page_background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearTotalCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center|right"
+                android:padding="10dp"
+                android:text="Total Customer  :"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/textTotalCustomer"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center|left"
+                android:padding="10dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editSearchCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearTotalCustomer"
+            android:background="@android:color/white"
+            android:drawableLeft="@drawable/search_icon_grey"
+            android:drawablePadding="10dp"
+            android:hint="Search"
+            android:padding="6dp" />
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/refreshMyCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/editSearchCustomer"
+            android:layout_marginTop="-2dp">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerMyCustomer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="80dp">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="9dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="70dp"
+            android:src="@drawable/ic_vector_drop_down_arrow"
+            app:fabSize="mini" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnAddCustomerMyCustomer"
+        style="@style/OrangeButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="add customer" />
+</FrameLayout>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.nikvay.business_application">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <application
+        android:name="com.nikvay.business_application.volley_support.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:launchMode="singleTask"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.nikvay.business_application.activity.NotificationDetailsActivity"></activity>
+        <activity android:name="com.nikvay.business_application.activity.QuotationActivity" />
+
+
+
+      <!--  <service
+            android:name=".firebaseServices.MyFirebaseInstanceIDService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>-->
+
+
+        <service
+            android:name="com.nikvay.business_application.firebaseServices.MyFirebaseMessagingService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.nikvay.business_application.activity.NotificationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.MyPerformanceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.HolidayListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.LeaveApplicationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.CNPProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.CNPApplicationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.ExplodedViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.AttendanceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.PriceListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.SendPIActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.nikvay.business_application.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.MainActivity"
+            android:label="CNP Business Application"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.StockDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.PriceDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.AddCustomerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.nikvay.business_application.activity.AddVisitsActivity"
+            android:label="Add Visit"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.nikvay.business_application.activity.AddCollectionActivity"
+            android:label="Add Collection"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.nikvay.business_application.activity.CommonVisitCollectionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.RequestQuotationActivity"
+            android:label="Quotation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="com.nikvay.business_application.activity.QuotationListActivity"
+            android:label="Quotation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.nikvay.business_application.activity.ViewQuotationActivity"
+            android:label="Quotation Detail"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.nikvay.business_application.activity.LocationActivity"
+            android:label="My Location"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.OutstandingActivity"
+            android:label="Outstanding"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.OutstandingDetailActivity"
+            android:label="Receipt Detail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nikvay.business_application.activity.EditQuotationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.nikvay.business_application.activity.OrderProcessActivity"
+            android:label="Send Pi"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="8231de6c0c7cdedee5183acb38f73cc9512671a5" />
+    </application>
+
+</manifest>

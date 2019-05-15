@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.QuotationListActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:weightSum="100"
+        tools:ignore="MissingConstraints">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:paddingLeft="-10dp"
+            app:contentInsetLeft="-20dp"
+            app:contentInsetStart="-20dp"
+            app:contentInsetStartWithNavigation="-20dp"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearTotalCustomer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="1"
+                android:background="@color/colorPrimaryDark"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:background="@color/colorPrimaryDark"
+                    android:gravity="center|right"
+                    android:padding="10dp"
+                    android:text="Total Quotation  :"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textTotalQuotation"
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:background="@color/colorPrimaryDark"
+                    android:gravity="center|left"
+                    android:padding="10dp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!--  <Spinner
+                  android:id="@+id/spinnerQuotationStatus"
+                  style="@style/Widget.AppCompat.Spinner"
+                  android:layout_width="match_parent"
+                  android:layout_height="40dp"
+                  android:layout_below="@+id/linearTotalCustomer"
+                  android:spinnerMode="dialog"
+                  android:layout_alignParentStart="true"
+                  android:layout_marginStart="0dp"
+                  android:layout_marginTop="-2dp"
+                  android:entries="@array/quotation_status" />-->
+
+            <!--visibility gone-->
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/ll_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearTotalCustomer"
+                android:background="@drawable/shape_border"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_marginTop="0.7dp"
+                    android:layout_marginBottom="0.7dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white" />
+
+                <Spinner
+                    android:id="@+id/spinnerQuotationStatus"
+                    style="@style/Widget.AppCompat.Spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/quotation_status"
+                    android:padding="4dp"
+                    android:popupBackground="#E200E5FF" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_marginTop="0.7dp"
+                    android:layout_marginBottom="0.7dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/edit_tv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/editSearchQuotation"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_spinner"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="1dp"
+                android:background="@color/page_background"
+                android:drawableLeft="@drawable/search_icon_grey"
+                android:drawablePadding="10dp"
+                android:gravity="center|left"
+                android:hint="Search Quotation"
+                android:inputType="text"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerQuotation"
+                    android:layout_below="@+id/editSearchQuotation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="120dp">
+
+                </android.support.v7.widget.RecyclerView>
+
+            <ImageView
+                android:id="@+id/iv_empty_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editSearchQuotation"
+                android:src="@drawable/app_empty_list"
+                android:visibility="gone" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="9dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_vector_drop_down_arrow"
+                android:visibility="gone"
+                app:fabSize="mini" />
+        </RelativeLayout>
+
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>
