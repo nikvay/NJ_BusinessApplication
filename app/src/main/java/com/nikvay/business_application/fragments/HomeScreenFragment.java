@@ -15,15 +15,18 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.nikvay.business_application.R;
 import com.nikvay.business_application.activity.CNPApplicationActivity;
 import com.nikvay.business_application.activity.CNPProfileActivity;
 import com.nikvay.business_application.activity.CommonVisitCollectionActivity;
 import com.nikvay.business_application.activity.ExplodedViewActivity;
 import com.nikvay.business_application.activity.LocationActivity;
+import com.nikvay.business_application.activity.LoginActivity;
 import com.nikvay.business_application.activity.MainActivity;
 import com.nikvay.business_application.activity.OrderProcessActivity;
 import com.nikvay.business_application.activity.OutstandingActivity;
@@ -33,9 +36,12 @@ import com.nikvay.business_application.activity.QuotationListActivity;
 import com.nikvay.business_application.activity.RequestQuotationActivity;
 import com.nikvay.business_application.common.CommonVars;
 import com.nikvay.business_application.common.VibrateOnClick;
+import com.nikvay.business_application.model.ApplicationData;
 import com.nikvay.business_application.utils.MyBounceInterpolator;
 import com.nikvay.business_application.utils.SharedUtil;
 import com.nikvay.business_application.utils.StaticContent;
+
+import java.util.ArrayList;
 
 import static android.content.Context.VIBRATOR_SERVICE;
 
@@ -67,6 +73,9 @@ public class HomeScreenFragment extends Fragment {
             textCollectionDailyReport,
             textQuoteDialogMore,
             textLocationDailyReport;
+
+    ImageView iv_homeScreen;
+    ArrayList<ApplicationData> applicationDataArrayList=new ArrayList<>();
 
 
     public HomeScreenFragment(Context mContext) {
@@ -124,6 +133,7 @@ public class HomeScreenFragment extends Fragment {
         linearExplodedView=view.findViewById(R.id.linearExplodedList);
         linearCNPApplication=view.findViewById(R.id.linearCNPApplication);
         linearCNPProfile=view.findViewById(R.id.linearCNPProfile);
+        iv_homeScreen=view.findViewById(R.id.iv_homeScreen);
 
 
         textVisitDailyReport = (TextView) dialog_daily_visit.findViewById(R.id.textVisitDailyReport);
@@ -135,6 +145,10 @@ public class HomeScreenFragment extends Fragment {
         callBounceAnimation(btn_check_stock);
         callBounceAnimation(btnMore);
         callBounceAnimation(btnDailyReport);*/
+
+        applicationDataArrayList=sharedUtil.getapplicationData();
+
+        Glide.with(mContext).load(applicationDataArrayList.get(0).getScreen_image()).into(iv_homeScreen);
     }
 
     private void events() {

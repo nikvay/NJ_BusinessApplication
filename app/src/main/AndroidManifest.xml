@@ -91,7 +91,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.nikvay.business_application.activity.MainActivity"
-            android:label="CNP Business Application"
+            android:label="Business Application"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity

@@ -9,6 +9,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
@@ -16,10 +17,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
@@ -32,6 +35,7 @@ import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.nikvay.business_application.R;
 import com.nikvay.business_application.common.ServerConstants;
 import com.nikvay.business_application.common.VibrateOnClick;
+import com.nikvay.business_application.model.ApplicationData;
 import com.nikvay.business_application.model.CNP;
 import com.nikvay.business_application.utils.Logs;
 import com.nikvay.business_application.utils.ResponseUtil;
@@ -40,6 +44,7 @@ import com.nikvay.business_application.utils.ValidationUtil;
 import com.nikvay.business_application.volley_support.MyVolleyPostMethod;
 import com.nikvay.business_application.volley_support.VolleyCompleteListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -51,11 +56,15 @@ public class LoginActivity extends AppCompatActivity implements VolleyCompleteLi
     TextView txt_error_message;
     Button layoutLogin;
     SharedUtil sharedUtil;
+    ImageView iv_login;
 
 
 
     String address,token;
     LocationManager locationManager;
+
+    ArrayList<ApplicationData> applicationDataArrayList=new ArrayList<>();
+
 
 
 
@@ -89,6 +98,7 @@ public class LoginActivity extends AppCompatActivity implements VolleyCompleteLi
 
         token = sharedUtil.getDeviceToken(LoginActivity.this);
 
+
         googleApiClient = getAPIClientInstance();
         if (googleApiClient != null) {
             googleApiClient.connect();
@@ -109,12 +119,17 @@ public class LoginActivity extends AppCompatActivity implements VolleyCompleteLi
 
     private void initView() {
         sharedUtil = new SharedUtil(LoginActivity.this);
+        applicationDataArrayList=sharedUtil.getapplicationData();
         VibrateOnClick.vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         edt_email = findViewById(R.id.edt_email);
         edt_password = findViewById(R.id.edt_password);
         edt_password.setTypeface(Typeface.DEFAULT);
         layoutLogin = findViewById(R.id.layoutLogin);
         txt_error_message = findViewById(R.id.txt_error_message);
+        iv_login = findViewById(R.id.iv_login);
+
+
+        Glide.with(LoginActivity.this).load(applicationDataArrayList.get(0).getScreen_image()).into(iv_login);
 
         layoutLogin.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -13,8 +13,8 @@ public class ServerConstants {
     public class serverUrl {
 
         //public static final String BASE_URL = "http://www.nikvay.com/admin/";
-       // public static final String BASE_URL ="http://cnpmasterapp.com/admin/"; //Live Url
-        public static final String BASE_URL ="http://cnpmasterapp.com/businessapp"; //Live Url
+       //public static final String BASE_URL ="http://cnpmasterapp.com/admin/"; //Live Url
+        public static final String BASE_URL ="http://cnpmasterapp.com/businessapp/"; //Live Url
        // public static final String BASE_URL = "http://www.cnpindiaapp.com/admin_new/";
         public static final String IMAGE_BASE_URL = BASE_URL + "media/user-profile-pictures/";
         public static final String LOGIN = BASE_URL + "ws-login";
@@ -69,6 +69,7 @@ public class ServerConstants {
         public static final String  NOTIFICATION_LIST= BASE_URL + "ws-notification-list";
         public static final String  MY_PERFORMANCE= BASE_URL + "ws-user-performance";
         public static final String  QUOTATION_LIST_COUNT= BASE_URL + "ws-user-quote-list-count";
+        public static final String  APPLICATION_DATA= BASE_URL + "ws-flash-screen-logo";
 
     }
 
@@ -123,6 +124,7 @@ public class ServerConstants {
         public  static final int NOTIFICATION_LIST=145;
         public  static final int MY_PERFORMANCE=146;
         public  static final int QUOTATION_LIST_COUNT=147;
+        public  static final int APPLICATION_DATA=148;
 
 
 

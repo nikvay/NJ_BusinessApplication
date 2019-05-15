@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="5dp"
-        android:text="CNP Business App"
+        android:id="@+id/text_application_name"
         android:textColor="#000"
         android:textSize="17sp" />
 
@@ -21,8 +21,7 @@
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="51dp"
-        android:src="@drawable/splash" />
+        android:layout_marginTop="51dp" />
 
     <TextView
         android:id="@+id/text_cnp_message"
@@ -35,7 +34,6 @@
         android:layout_marginStart="0dp"
         android:layout_marginBottom="93dp"
         android:gravity="center"
-        android:text="@string/slogan"
         android:textColor="#1E61C9"
         android:textStyle="bold|italic" />
 

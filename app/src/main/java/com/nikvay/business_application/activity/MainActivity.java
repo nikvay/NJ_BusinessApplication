@@ -42,6 +42,7 @@ import com.nikvay.business_application.fragments.HomeScreenFragment;
 import com.nikvay.business_application.fragments.MyCustomerFragment;
 import com.nikvay.business_application.fragments.ProfileFragment;
 import com.nikvay.business_application.fragments.StockListFragment;
+import com.nikvay.business_application.model.ApplicationData;
 import com.nikvay.business_application.model.Drawer;
 import com.nikvay.business_application.utils.CommonIntent;
 import com.nikvay.business_application.utils.FilesUtil;
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements HomeScreenFragmen
 
     private Dialog dialog_welcome_msg;
     private Button btn_ok_welcome_msg;
+    ArrayList<ApplicationData> applicationDataArrayList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +84,9 @@ public class MainActivity extends AppCompatActivity implements HomeScreenFragmen
         setSupportActionBar(toolbar);
         localBrodcastInitialize();
 
+
         sharedUtil = new SharedUtil(MainActivity.this);
+        applicationDataArrayList=sharedUtil.getapplicationData();
         drawers = new ArrayList<Drawer>();
         drawers.add(new Drawer(R.drawable.ic_vector_home, StaticContent.DrawerItems.HOME));
         //drawers.add(new Drawer(R.drawable.search, "Search"));
@@ -358,7 +362,7 @@ public class MainActivity extends AppCompatActivity implements HomeScreenFragmen
         mmFragment = new HomeScreenFragment(this);
         if (mmFragment != null) {
             CommonVars.status = "home";
-            toolbar.setTitle("CNP Business App");
+            toolbar.setTitle(applicationDataArrayList.get(0).getApplication_name());
             mmFragment.setHasOptionsMenu(true);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.add(R.id.content_frame, mmFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit();
