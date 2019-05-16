@@ -47,7 +47,7 @@
                        android:layout_width="wrap_content"
                        android:layout_gravity="center"
                        android:layout_height="wrap_content"
-                       android:textColor="#1E61C9"
+                       android:textColor="#0f88ac"
                        android:text="Home"/>
 
                </LinearLayout>
@@ -69,7 +69,7 @@
                        android:layout_width="wrap_content"
                        android:layout_gravity="center"
                        android:layout_height="wrap_content"
-                       android:textColor="#1E61C9"
+                       android:textColor="#0f88ac"
                        android:text="Check Price"/>
 
                </LinearLayout>
@@ -87,7 +87,7 @@
                    <TextView
                        android:layout_width="wrap_content"
                        android:layout_gravity="center"
-                       android:textColor="#1E61C9"
+                       android:textColor="#0f88ac"
                        android:layout_height="wrap_content"
                        android:text="Quotation"/>
 

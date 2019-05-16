@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements HomeScreenFragmen
         drawers.add(new Drawer(R.drawable.quotation_icon, StaticContent.DrawerItems.QUOTATION));
         drawers.add(new Drawer(R.drawable.my_customer_icon, StaticContent.DrawerItems.MY_CUSTOMER));
         drawers.add(new Drawer(R.drawable.ic_vector_mark_attendance, StaticContent.DrawerItems.MARK_ATTENDANCE));
-        drawers.add(new Drawer(R.drawable.ic_vector_explodedview, StaticContent.DrawerItems.EXPLODED_VIEW));
+       // drawers.add(new Drawer(R.drawable.ic_vector_explodedview, StaticContent.DrawerItems.EXPLODED_VIEW));
         drawers.add(new Drawer(R.drawable.ic_leave_application, StaticContent.DrawerItems.LEAVE_APPLICATION));
         drawers.add(new Drawer(R.drawable.ic_holiday_list, StaticContent.DrawerItems.HOLIDAY_LIST));
         drawers.add(new Drawer(R.drawable.ic_my_performance, StaticContent.DrawerItems.MY_PERFORMANCE));
@@ -315,10 +315,10 @@ public class MainActivity extends AppCompatActivity implements HomeScreenFragmen
                 startActivity(new Intent(MainActivity.this, AttendanceActivity.class));
                 break;
 
-            case StaticContent.DrawerItems.EXPLODED_VIEW:
+           /* case StaticContent.DrawerItems.EXPLODED_VIEW:
                 VibrateOnClick.vibrate();
                 startActivity(new Intent(MainActivity.this, ExplodedViewActivity.class));
-                break;
+                break;*/
 
             case StaticContent.DrawerItems.LEAVE_APPLICATION:
                 VibrateOnClick.vibrate();

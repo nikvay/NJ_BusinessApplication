@@ -28,30 +28,30 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="22sp"
-        android:text="CNP Pumps India Pvt.Ltd"
+        android:text="Business Application"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold" />
 
-    <TextView
-        style="@style/TextAppearance.AppCompat.Large"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textStyle="bold"
+    <!-- <TextView
+         style="@style/TextAppearance.AppCompat.Large"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center"
+         android:textStyle="bold"
 
-        android:text="Company Strives to Deliver Energy Efficient"
-        android:textSize="18sp"
-        android:textColor="@color/colorPrimary" />
+         android:text="Company Strives to Deliver Energy Efficient"
+         android:textSize="18sp"
+         android:textColor="@color/colorPrimary" />
 
-    <TextView
-        style="@style/TextAppearance.AppCompat.Large"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:text="Solution In Pumps &amp; Pumping Systems."
-        android:textColor="@color/colorPrimary" />
+     <TextView
+         style="@style/TextAppearance.AppCompat.Large"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center"
+         android:textSize="18sp"
+         android:textStyle="bold"
+         android:text="Solution In Pumps &amp; Pumping Systems."
+         android:textColor="@color/colorPrimary" />-->
 
 
     <RelativeLayout
