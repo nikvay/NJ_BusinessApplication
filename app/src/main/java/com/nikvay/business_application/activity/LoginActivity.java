@@ -383,6 +383,9 @@ public class LoginActivity extends AppCompatActivity implements VolleyCompleteLi
         super.onResume();
         requestGPSSettings();
         getLocation();
+        sharedUtil = new SharedUtil(LoginActivity.this);
+        applicationDataArrayList=sharedUtil.getapplicationData();
+        Glide.with(LoginActivity.this).load(applicationDataArrayList.get(0).getScreen_image()).into(iv_login);
 
     }
 
@@ -424,5 +427,13 @@ public class LoginActivity extends AppCompatActivity implements VolleyCompleteLi
                 }
             }
         });
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        sharedUtil = new SharedUtil(LoginActivity.this);
+        applicationDataArrayList=sharedUtil.getapplicationData();
+        Glide.with(LoginActivity.this).load(applicationDataArrayList.get(0).getScreen_image()).into(iv_login);
     }
 }

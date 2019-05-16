@@ -4,6 +4,8 @@ public class StaticContent {
 
     public class UserData {
         public static final String PREFS_NAME = "AppPrefsFile";
+        public static final String APPLICATION_DATA = "AppData";
+
 
         public static final String REGISTRATION_ID = "regId";
 

@@ -140,6 +140,8 @@ public class HomeScreenFragment extends Fragment {
         textCollectionDailyReport = (TextView) dialog_daily_visit.findViewById(R.id.textCollectionDailyReport);
         textLocationDailyReport = (TextView) dialog_daily_visit.findViewById(R.id.textLocationDailyReport);
         textQuoteDialogMore = (TextView) dialog_more.findViewById(R.id.textQuoteDialogMore);
+
+
        /* btnMore = (Button) view.findViewById(R.id.btnMore);
         callBounceAnimation(btn_check_price);
         callBounceAnimation(btn_check_stock);

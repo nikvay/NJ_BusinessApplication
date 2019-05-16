@@ -14,6 +14,7 @@ public class SharedUtil {
     private Context context;
     private static String DEVICE_TOKEN = "DEVICE_TOKEN";
 
+
 	public SharedUtil(Context context) {
 		super();
 		this.context = context;
@@ -27,14 +28,14 @@ public class SharedUtil {
     }
 
     public static void putDeviceToken(Context context, String token) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(StaticContent.UserData.PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(StaticContent.UserData.APPLICATION_DATA, Context.MODE_PRIVATE);
         sharedPreferences.edit()
                 .putString(DEVICE_TOKEN, token)
                 .apply();
     }
 
     public static String getDeviceToken(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(StaticContent.UserData.PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(StaticContent.UserData.APPLICATION_DATA, Context.MODE_PRIVATE);
         return sharedPreferences.getString(DEVICE_TOKEN, "");
     }
 
@@ -99,7 +100,7 @@ public class SharedUtil {
 
     public void  addapplicationNameImageMessage(String splashImage,String screenImage,String applicationName,String message)
     {
-        SharedPreferences settings = context.getSharedPreferences(StaticContent.UserData.PREFS_NAME, Activity.MODE_PRIVATE);
+        SharedPreferences settings = context.getSharedPreferences(StaticContent.UserData.APPLICATION_DATA, Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString("SPLASHIMAGE", splashImage);
         editor.putString("SCREENIMAGE", screenImage);
@@ -112,7 +113,7 @@ public class SharedUtil {
     {
         ArrayList<ApplicationData> applicationDataArrayList=new ArrayList<>();
         ApplicationData applicationData=new ApplicationData();
-        SharedPreferences pref = context.getSharedPreferences(StaticContent.UserData.PREFS_NAME, Activity.MODE_PRIVATE);
+        SharedPreferences pref = context.getSharedPreferences(StaticContent.UserData.APPLICATION_DATA, Activity.MODE_PRIVATE);
         String  splash_image = pref.getString("SPLASHIMAGE", null);
         String screen_image = pref.getString("SCREENIMAGE", null);
         String application_name = pref.getString("APPLICATIONNAME", null);
