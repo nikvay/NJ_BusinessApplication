@@ -18,6 +18,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.nikvay.business_application.R;
@@ -34,14 +35,25 @@ import com.nikvay.business_application.activity.PriceListActivity;
 import com.nikvay.business_application.activity.QuotationActivity;
 import com.nikvay.business_application.activity.QuotationListActivity;
 import com.nikvay.business_application.activity.RequestQuotationActivity;
+import com.nikvay.business_application.activity.SplashActivity;
+import com.nikvay.business_application.adapter.MyCustomerAdapter;
 import com.nikvay.business_application.common.CommonVars;
+import com.nikvay.business_application.common.ServerConstants;
 import com.nikvay.business_application.common.VibrateOnClick;
 import com.nikvay.business_application.model.ApplicationData;
 import com.nikvay.business_application.utils.MyBounceInterpolator;
 import com.nikvay.business_application.utils.SharedUtil;
 import com.nikvay.business_application.utils.StaticContent;
+import com.nikvay.business_application.volley_support.MyVolleyPostFragmentMethod;
+import com.nikvay.business_application.volley_support.MyVolleyPostMethod;
+import com.nikvay.business_application.volley_support.VolleyCompleteListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static android.content.Context.VIBRATOR_SERVICE;
 
@@ -50,7 +62,7 @@ import static android.content.Context.VIBRATOR_SERVICE;
  * Created by Param3 on 6/15/2016.
  */
 @SuppressLint("ValidFragment")
-public class HomeScreenFragment extends Fragment {
+public class HomeScreenFragment extends Fragment implements VolleyCompleteListener {
     private LinearLayout linearCheckPrice,
             linearCheckStock,
             linearMyCustomer,
@@ -63,6 +75,8 @@ public class HomeScreenFragment extends Fragment {
             linearExplodedView,
             linearCNPApplication,
             linearCNPProfile;
+    private TextView text_ev, text_app, text_profile;
+    private VolleyCompleteListener volleyCompleteListener;
 
 
     private static final String TAG = HomeScreenFragment.class.getSimpleName();
@@ -75,11 +89,13 @@ public class HomeScreenFragment extends Fragment {
             textLocationDailyReport;
 
     ImageView iv_homeScreen;
-    ArrayList<ApplicationData> applicationDataArrayList=new ArrayList<>();
+    ArrayList<ApplicationData> applicationDataArrayList = new ArrayList<>();
 
 
     public HomeScreenFragment(Context mContext) {
         this.mContext = mContext;
+        this.volleyCompleteListener = this;
+
     }
 
     public interface iHomeScreenFragmentItemClick {
@@ -106,8 +122,16 @@ public class HomeScreenFragment extends Fragment {
         // TODO Auto-generated method stub
         View view = inflater.inflate(R.layout.fragment_home_screen, container, false);
         initView(view);
+        callSetDashboardMenu();
         events();
         return view;
+    }
+
+    private void callSetDashboardMenu() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put(ServerConstants.URL, ServerConstants.serverUrl.DASHBOARD);
+        new MyVolleyPostFragmentMethod(getActivity(),volleyCompleteListener, map, ServerConstants.ServiceCode.DASHBOARD, true);
+
     }
 
     private void initView(View view) {
@@ -130,16 +154,20 @@ public class HomeScreenFragment extends Fragment {
         linearCollection = (LinearLayout) view.findViewById(R.id.linearCollection);
         linearOutstanding = (LinearLayout) view.findViewById(R.id.linearOutstanding);
         linearOrderProcess = (LinearLayout) view.findViewById(R.id.linearOrderProcess);
-        linearExplodedView=view.findViewById(R.id.linearExplodedList);
-        linearCNPApplication=view.findViewById(R.id.linearCNPApplication);
-        linearCNPProfile=view.findViewById(R.id.linearCNPProfile);
-        iv_homeScreen=view.findViewById(R.id.iv_homeScreen);
+        linearExplodedView = view.findViewById(R.id.linearExplodedList);
+        linearCNPApplication = view.findViewById(R.id.linearCNPApplication);
+        linearCNPProfile = view.findViewById(R.id.linearCNPProfile);
+        iv_homeScreen = view.findViewById(R.id.iv_homeScreen);
 
 
         textVisitDailyReport = (TextView) dialog_daily_visit.findViewById(R.id.textVisitDailyReport);
         textCollectionDailyReport = (TextView) dialog_daily_visit.findViewById(R.id.textCollectionDailyReport);
         textLocationDailyReport = (TextView) dialog_daily_visit.findViewById(R.id.textLocationDailyReport);
         textQuoteDialogMore = (TextView) dialog_more.findViewById(R.id.textQuoteDialogMore);
+
+        text_ev =  view.findViewById(R.id.text_ev);
+        text_app = view.findViewById(R.id.text_app);
+        text_profile =view.findViewById(R.id.text_profile);
 
 
        /* btnMore = (Button) view.findViewById(R.id.btnMore);
@@ -148,7 +176,7 @@ public class HomeScreenFragment extends Fragment {
         callBounceAnimation(btnMore);
         callBounceAnimation(btnDailyReport);*/
 
-        applicationDataArrayList=sharedUtil.getapplicationData();
+        applicationDataArrayList = sharedUtil.getapplicationData();
 
         Glide.with(mContext).load(applicationDataArrayList.get(0).getScreen_image()).into(iv_homeScreen);
     }
@@ -201,9 +229,6 @@ public class HomeScreenFragment extends Fragment {
         });
 
 
-
-
-
         linearCheckPrice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -212,8 +237,6 @@ public class HomeScreenFragment extends Fragment {
                 startActivity(new Intent(mContext, PriceListActivity.class));
             }
         });
-
-
 
 
         linearGenQuotation.setOnClickListener(new View.OnClickListener() {
@@ -264,21 +287,21 @@ public class HomeScreenFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 VibrateOnClick.vibrate();
-                startActivity(new Intent(mContext, ExplodedViewActivity.class));
+                startActivity(new Intent(mContext, ExplodedViewActivity.class).putExtra("TITLE",text_ev.getText().toString().trim()));
             }
         });
         linearCNPApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 VibrateOnClick.vibrate();
-                startActivity(new Intent(mContext, CNPApplicationActivity.class));
+                startActivity(new Intent(mContext, CNPApplicationActivity.class).putExtra("TITLE",text_app.getText().toString().trim()));
             }
         });
         linearCNPProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 VibrateOnClick.vibrate();
-                startActivity(new Intent(mContext, CNPProfileActivity.class));
+                startActivity(new Intent(mContext, CNPProfileActivity.class).putExtra("TITLE",text_profile.getText().toString().trim()));
             }
         });
 
@@ -317,5 +340,51 @@ public class HomeScreenFragment extends Fragment {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, mFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit();
         }
+    }
+
+    @Override
+    public void onTaskCompleted(String response, int serviceCode) {
+        switch (serviceCode) {
+            case ServerConstants.ServiceCode.DASHBOARD: {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String error_code = jsonObject.getString("error_code");
+                    String msg = jsonObject.getString("msg");
+                    if (error_code.equals(StaticContent.ServerResponseValidator.ERROR_CODE)) {
+                        JSONArray jsonArray = jsonObject.getJSONArray("menu");
+                        if (jsonArray.length() > 0) {
+                            ArrayList<String> menuDashboard = new ArrayList<>();
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jdata = jsonArray.getJSONObject(i);
+                                String menu = jdata.getString("menu");
+                                menuDashboard.add(menu);
+                            }
+
+
+                            text_ev.setText(menuDashboard.get(0).trim());
+                            text_app.setText(menuDashboard.get(1).trim());
+                            text_profile.setText(menuDashboard.get(2).trim());
+
+
+                        } else {
+
+                            Toast.makeText(mContext, "No data Found", Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
+        }
+
+    }
+
+    @Override
+    public void onTaskFailed(String response, int serviceCode) {
+
     }
 }

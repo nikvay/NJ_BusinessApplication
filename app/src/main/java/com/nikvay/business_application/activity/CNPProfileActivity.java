@@ -87,7 +87,7 @@ public class CNPProfileActivity extends AppCompatActivity implements VolleyCompl
 
 
     //  select Customer Dialog
-    private TextView tv_select_customer_profile;
+    private TextView tv_select_customer_profile,textTitleProfile;
     private Dialog selectCustomerDialog;
     private Button btnOkDialogSC, btnCancelDialogSC;
     private EditText editSearchC;
@@ -118,6 +118,7 @@ public class CNPProfileActivity extends AppCompatActivity implements VolleyCompl
         iv_addEmailId = findViewById(R.id.iv_addEmailId);
         edtOptionalEmailId = findViewById(R.id.edtOptionalEmailId);
         textCNPProfile = findViewById(R.id.textCNPProfile);
+        textTitleProfile = findViewById(R.id.textTitleProfile);
 
 
         //Select First pdf Dialog
@@ -172,6 +173,19 @@ public class CNPProfileActivity extends AppCompatActivity implements VolleyCompl
         recyclerDialogSC = selectCustomerDialog.findViewById(R.id.recyclerDialogSC);
         LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
         recyclerDialogSC.setLayoutManager(manager);
+
+
+
+        Bundle bundle = getIntent().getExtras();
+
+        if(bundle!= null)
+        {
+
+            textTitleProfile.setText(bundle.getString("TITLE"));
+            textCNPProfile.setText("Select"+" "+bundle.getString("TITLE"));
+
+        }
+
 
 
         events();

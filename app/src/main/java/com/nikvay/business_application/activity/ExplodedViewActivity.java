@@ -55,7 +55,7 @@ public class ExplodedViewActivity extends AppCompatActivity implements VolleyCom
     public static boolean isToRefresh = false;
     Button btnSend;
     ImageView textExplodedPdfCH;
-    TextView textExplodedPdf;
+    TextView textExplodedPdf,text_title;
 
 
     String user_id;
@@ -89,6 +89,8 @@ public class ExplodedViewActivity extends AppCompatActivity implements VolleyCom
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exploded_view);
         initialize();
+
+
     }
 
     private void initialize() {
@@ -100,6 +102,8 @@ public class ExplodedViewActivity extends AppCompatActivity implements VolleyCom
         edtCustomerEmailId = findViewById(R.id.edtCustomerEmailId);
         btnSend = findViewById(R.id.btnSend);
         textExplodedPdfCH = findViewById(R.id.textExplodedPdfCH);
+        textExplodedPdf = findViewById(R.id.textExplodedPdf);
+        text_title = findViewById(R.id.text_title);
         iv_addEmailId = findViewById(R.id.iv_addEmailId);
         edtOptionalEmailId = findViewById(R.id.edtOptionalEmailId);
 
@@ -133,6 +137,18 @@ public class ExplodedViewActivity extends AppCompatActivity implements VolleyCom
         recyclerDialogSC = selectCustomerDialog.findViewById(R.id.recyclerDialogSC);
         LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
         recyclerDialogSC.setLayoutManager(manager);
+
+
+        Bundle bundle = getIntent().getExtras();
+
+        if(bundle!= null)
+        {
+
+            text_title.setText(bundle.getString("TITLE"));
+            textExplodedPdf.setText("Select"+" "+bundle.getString("TITLE"));
+
+        }
+
 
 
         events();

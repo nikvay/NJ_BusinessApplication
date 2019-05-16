@@ -53,7 +53,7 @@ public class CNPApplicationActivity extends AppCompatActivity implements VolleyC
     public static boolean isToRefresh = false;
     Button btnSend;
     ImageView textCNPApplicationCH;
-    TextView textCNPApplication;
+    TextView textCNPApplication,textTitleApplication;
     String user_id;
     ExplodedViewModel explodedViewModel;
     ArrayList<ExplodedViewModel> explodedViewModelsArrayKList;
@@ -100,6 +100,8 @@ public class CNPApplicationActivity extends AppCompatActivity implements VolleyC
         textCNPApplicationCH = findViewById(R.id.textCNPApplicationCH);
         iv_addEmailId = findViewById(R.id.iv_addEmailId);
         edtOptionalEmailId = findViewById(R.id.edtOptionalEmailId);
+        textTitleApplication = findViewById(R.id.textTitleApplication);
+        edtOptionalEmailId = findViewById(R.id.edtOptionalEmailId);
 
 
         selectExplodedPdfDialog = new Dialog(this);
@@ -134,6 +136,18 @@ public class CNPApplicationActivity extends AppCompatActivity implements VolleyC
         recyclerDialogSC = selectCustomerDialog.findViewById(R.id.recyclerDialogSC);
         LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
         recyclerDialogSC.setLayoutManager(manager);
+
+
+        Bundle bundle = getIntent().getExtras();
+
+        if(bundle!= null)
+        {
+
+            textTitleApplication.setText(bundle.getString("TITLE"));
+            textCNPApplication.setText("Select"+" "+bundle.getString("TITLE"));
+
+        }
+
 
 
         events();

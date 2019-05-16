@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="40dp"
-            android:text="Exploded View"
+            android:id="@+id/text_title"
             android:textColor="#fff"
             android:textSize="20sp" />
 
@@ -151,7 +151,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="7"
                         android:gravity="center|left"
-                        android:text="Select Exploded Pdf"
                         android:textColor="@color/orange" />
 
                     <ImageView

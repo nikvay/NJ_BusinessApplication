@@ -70,6 +70,7 @@ public class ServerConstants {
         public static final String  MY_PERFORMANCE= BASE_URL + "ws-user-performance";
         public static final String  QUOTATION_LIST_COUNT= BASE_URL + "ws-user-quote-list-count";
         public static final String  APPLICATION_DATA= BASE_URL + "ws-flash-screen-logo";
+        public static final String  DASHBOARD= BASE_URL + "ws-menu-list";
 
     }
 
@@ -125,6 +126,7 @@ public class ServerConstants {
         public  static final int MY_PERFORMANCE=146;
         public  static final int QUOTATION_LIST_COUNT=147;
         public  static final int APPLICATION_DATA=148;
+        public  static final int DASHBOARD=149;
 
 
 
