@@ -24,8 +24,8 @@ android {
         applicationId "com.nikvay.business_application"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 8
-        versionName "1.7"
+        versionCode 1
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

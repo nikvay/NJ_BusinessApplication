@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements HomeScreenFragmen
                 }
             }
         };
-        drawer.setDrawerListener(actionBarDrawerToggle);
+        drawer.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         VibrateOnClick.vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
