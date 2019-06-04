@@ -126,7 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center|left"
-                    android:text="CNP Application"
+                    android:id="@+id/textApplication"
                     android:textColor="@color/orange"
 
                     />

@@ -126,10 +126,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center|left"
-                    android:text="CNP Profile"
-                    android:textColor="@color/orange"
-
-                    />
+                    android:id="@+id/textProfile"
+                    android:textColor="@color/orange" />
 
                 <View
                     android:layout_width="match_parent"

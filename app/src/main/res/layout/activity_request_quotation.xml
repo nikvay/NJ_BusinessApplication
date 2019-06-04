@@ -214,19 +214,19 @@
                         android:layout_height="0.4dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:background="@color/orange"/>
+                        android:background="@color/orange" />
 
-                 <!--   <Spinner
-                        android:id="@+id/spinnerBranchQuotation"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"></Spinner>-->
+                    <!--   <Spinner
+                           android:id="@+id/spinnerBranchQuotation"
+                           android:layout_width="match_parent"
+                           android:layout_height="match_parent"></Spinner>-->
 
                     <Spinner
                         android:id="@+id/spinnerBranchQuotation"
                         android:layout_width="match_parent"
-                        android:spinnerMode="dropdown"
+                        android:layout_height="match_parent"
                         android:popupBackground="#E200E5FF"
-                        android:layout_height="match_parent"/>
+                        android:spinnerMode="dropdown" />
 
 
                 </LinearLayout>
@@ -257,14 +257,14 @@
                         android:layout_height="0.4dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:background="@color/orange"/>
+                        android:background="@color/orange" />
 
                     <Spinner
                         android:id="@+id/spinnerGSTQuotation"
                         android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:entries="@array/gst_type"
-                        android:popupBackground="#E200E5FF"
-                        android:layout_height="match_parent"/>
+                        android:popupBackground="#E200E5FF" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -293,7 +293,7 @@
                         android:layout_height="0.4dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
-                        android:background="@color/orange"/>
+                        android:background="@color/orange" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -326,7 +326,7 @@
                     <android.support.v7.widget.RecyclerView
                         android:id="@+id/recyclerProductsQuotation"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
 
                 </LinearLayout>
@@ -337,8 +337,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:visibility="gone"
                 android:background="@color/cardview_light_background"
+                android:visibility="gone"
                 app:cardCornerRadius="@dimen/cardview_default_radius">
 
                 <LinearLayout
@@ -374,11 +374,11 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="6"
+                                android:digits="0123456789."
                                 android:hint="Discount"
+                                android:inputType="numberDecimal"
                                 android:lines="1"
                                 android:maxLength="2"
-                                android:digits="0123456789."
-                                android:inputType="numberDecimal"
                                 android:paddingLeft="5dp"
                                 android:singleLine="true" />
 
@@ -518,48 +518,46 @@
                             android:paddingLeft="5dp"
                             android:singleLine="true" />
 
-                     <EditText
+                        <EditText
                             android:id="@+id/editEmail"
                             style="@style/TextAppearance.AppCompat.Medium"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:hint="Email(Optional 1)"
-                            android:lines="1"
+                            android:hint="Multiple Email ID separated by comma(Optional 1)"
                             android:inputType="textEmailAddress"
+                            android:lines="1"
                             android:paddingLeft="5dp"
                             android:singleLine="true" />
 
 
-
-                        <EditText
-                            android:id="@+id/editEmailOptiona1"
-                            style="@style/TextAppearance.AppCompat.Medium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:hint="Email(Optional 2)"
-                            android:lines="1"
-                            android:inputType="textEmailAddress"
-                            android:paddingLeft="5dp"
-                            android:singleLine="true" />
-
-
-
-                        <EditText
-                            android:id="@+id/editEmailOptiona2"
-                            style="@style/TextAppearance.AppCompat.Medium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:hint="Email(Optional 3)"
-                            android:lines="1"
-                            android:inputType="textEmailAddress"
-                            android:paddingLeft="5dp"
-                            android:singleLine="true" />
+                        <!-- <EditText
+                             android:id="@+id/editEmailOptiona1"
+                             style="@style/TextAppearance.AppCompat.Medium"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="10dp"
+                             android:hint="Email(Optional 2)"
+                             android:lines="1"
+                             android:inputType="textEmailAddress"
+                             android:paddingLeft="5dp"
+                             android:singleLine="true" />
 
 
 
+                         <EditText
+                             android:id="@+id/editEmailOptiona2"
+                             style="@style/TextAppearance.AppCompat.Medium"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="10dp"
+                             android:hint="Email(Optional 3)"
+                             android:lines="1"
+                             android:inputType="textEmailAddress"
+                             android:paddingLeft="5dp"
+                             android:singleLine="true" />
+
+ -->
 
 
                         <EditText
@@ -569,8 +567,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:hint="Note(Optional)"
-                            android:lines="1"
                             android:inputType="text"
+                            android:lines="1"
                             android:paddingLeft="5dp"
                             android:singleLine="true" />
 

@@ -87,7 +87,7 @@ public class CNPProfileActivity extends AppCompatActivity implements VolleyCompl
 
 
     //  select Customer Dialog
-    private TextView tv_select_customer_profile,textTitleProfile;
+    private TextView tv_select_customer_profile,textTitleProfile,textProfile;
     private Dialog selectCustomerDialog;
     private Button btnOkDialogSC, btnCancelDialogSC;
     private EditText editSearchC;
@@ -119,6 +119,7 @@ public class CNPProfileActivity extends AppCompatActivity implements VolleyCompl
         edtOptionalEmailId = findViewById(R.id.edtOptionalEmailId);
         textCNPProfile = findViewById(R.id.textCNPProfile);
         textTitleProfile = findViewById(R.id.textTitleProfile);
+        textProfile = findViewById(R.id.textProfile);
 
 
         //Select First pdf Dialog
@@ -183,6 +184,7 @@ public class CNPProfileActivity extends AppCompatActivity implements VolleyCompl
 
             textTitleProfile.setText(bundle.getString("TITLE"));
             textCNPProfile.setText("Select"+" "+bundle.getString("TITLE"));
+            textProfile.setText(bundle.getString("TITLE"));
 
         }
 

@@ -71,7 +71,7 @@ public class CNPApplicationActivity extends AppCompatActivity implements VolleyC
 
 
     //  select Customer Dialog
-    private TextView tv_select_customer_application;
+    private TextView tv_select_customer_application,textApplication;
     private Dialog selectCustomerDialog;
     private Button btnOkDialogSC, btnCancelDialogSC;
     private EditText editSearchC;
@@ -102,6 +102,7 @@ public class CNPApplicationActivity extends AppCompatActivity implements VolleyC
         edtOptionalEmailId = findViewById(R.id.edtOptionalEmailId);
         textTitleApplication = findViewById(R.id.textTitleApplication);
         edtOptionalEmailId = findViewById(R.id.edtOptionalEmailId);
+        textApplication = findViewById(R.id.textApplication);
 
 
         selectExplodedPdfDialog = new Dialog(this);
@@ -145,6 +146,7 @@ public class CNPApplicationActivity extends AppCompatActivity implements VolleyC
 
             textTitleApplication.setText(bundle.getString("TITLE"));
             textCNPApplication.setText("Select"+" "+bundle.getString("TITLE"));
+            textApplication.setText(bundle.getString("TITLE"));
 
         }
 

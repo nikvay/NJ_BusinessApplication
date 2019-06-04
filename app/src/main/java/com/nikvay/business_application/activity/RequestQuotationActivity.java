@@ -239,8 +239,8 @@ public class RequestQuotationActivity extends AppCompatActivity implements Volle
 
         spinnerBranchQuotation =  findViewById(R.id.spinnerBranchQuotation);
         spinnerGSTQuotation =  findViewById(R.id.spinnerGSTQuotation);
-        editEmailOptiona1 =  findViewById(R.id.editEmailOptiona1);
-        editEmailOptiona2 =  findViewById(R.id.editEmailOptiona2);
+      /*  editEmailOptiona1 =  findViewById(R.id.editEmailOptiona1);
+        editEmailOptiona2 =  findViewById(R.id.editEmailOptiona2);*/
 
 
 
@@ -618,12 +618,12 @@ public class RequestQuotationActivity extends AppCompatActivity implements Volle
             Toast.makeText(getApplicationContext(), "Select Product", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (editEmail.getText().toString().length() > 0) {
+       /* if (editEmail.getText().toString().length() > 0) {
             if (!android.util.Patterns.EMAIL_ADDRESS.matcher(editEmail.getText().toString()).matches()) {
                 Toast.makeText(getApplicationContext(), "Enter valid email id", Toast.LENGTH_SHORT).show();
                 return false;
             }
-        }
+        }*/
         return true;
     }
 
@@ -669,13 +669,13 @@ public class RequestQuotationActivity extends AppCompatActivity implements Volle
             map.put("cc_email", editEmail.getText().toString());
 
         }
-        if (editEmailOptiona1.getText().toString().length() > 0) {
+       /* if (editEmailOptiona1.getText().toString().length() > 0) {
             map.put("cc_email1", editEmailOptiona1.getText().toString());
 
         }
         if (editEmailOptiona2.getText().toString().length() > 0) {
             map.put("cc_email2", editEmailOptiona2.getText().toString());
-        }
+        }*/
 
         new MyVolleyPostMethod(this, map, ServerConstants.ServiceCode.ADD_QUOTATION, true);
     }
