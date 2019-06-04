@@ -14,7 +14,7 @@ public class ServerConstants {
 
         //public static final String BASE_URL = "http://www.nikvay.com/admin/";
        //public static final String BASE_URL ="http://cnpmasterapp.com/admin/"; //Live Url
-        public static final String BASE_URL ="http://cnpmasterapp.com/businessapp/"; //Live Url
+        public static final String BASE_URL ="http://nikvaytechnology.com/businessapp/"; //Live Url
        // public static final String BASE_URL = "http://www.cnpindiaapp.com/admin_new/";
         public static final String IMAGE_BASE_URL = BASE_URL + "media/user-profile-pictures/";
         public static final String LOGIN = BASE_URL + "ws-login";
